@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7)
-project(sdlwin)
+project(sdl_pxl)
 
 # append sdl2
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/sdl2)
@@ -43,13 +43,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../bin)
 
 find_package(SDL2   REQUIRED)
 find_package(SDL2_image   REQUIRED)
-# find_package(OpenGL REQUIRED)
-# find_package(GLEW   REQUIRED)
-include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLEW_INCLUDE_DIRS} )
+find_package(SDL2_ttf   REQUIRED)
 
 
-add_executable(sdlwin ${sources})
-target_link_libraries(sdlwin SDL2::Main SDL2_image pngz png m -static-libgcc -static-libstdc++)
-# target_link_libraries(sdlwin SDL2::Main SDL2_image::SDL2_image m -static-libgcc -static-libstdc++)
-# target_link_libraries(win PRIVATE SDL2::Main SDL2_image::SDL2_image)
-# target_link_libraries(win SDL2::Main m -static-libgcc -static-libstdc++)
+add_executable(sdl_pxl ${sources})
+target_link_libraries(sdl_pxl SDL2::Main SDL2_image SDL2_ttf pngz png m -static-libgcc -static-libstdc++)
