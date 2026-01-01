@@ -12,7 +12,7 @@
 
 int main(int argc, char* args[]) {
 
-  char* path = "png/goodbye.png";
+  char* path = "png/sheridan_cute.png";
 
   /* load pngz */
   pngz z_sorted, z_original;
@@ -23,10 +23,10 @@ int main(int argc, char* args[]) {
   sort_info si = {
     .img_ref = &z_sorted,
     .vertical_sort = 0,
-    .start_threshold = 0.001,
-    .stop_threshold = 0.5,
+    .start_threshold = 0,
+    .stop_threshold = 0,
     .min_length = 1,
-    .max_length = 1000,
+    .max_length = 1,
     .random_start = 0,
     .random_stop = 0,
     .comparison_function = compare_brightness,
@@ -36,7 +36,6 @@ int main(int argc, char* args[]) {
   /* load sdl */
   SDL_Context context = {0};
   SDL_InitFrom(&context, &si);
-  SDL_SetWindowTitle(context.win, "pxl");
   SDL_RenderContext(&context);
 
   /* main loop */
